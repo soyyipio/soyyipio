@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title id="eventoTitle">Yipio</title>
+<meta id="eventoDescMeta" name="description" content="Entradas para el show de Yipio.">
+<meta name="theme-color" content="#0c0614">
+
+<meta id="ogType" property="og:type" content="website">
+<meta id="ogTitle" property="og:title" content="Yipio">
+<meta id="ogDescription" property="og:description" content="Entradas para el show de Yipio.">
+<meta id="ogImage" property="og:image" content="img/og.jpg">
+<meta property="og:locale" content="es_UY">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fff0bf'/%3E%3Cstop offset='.5' stop-color='%23e4c06a'/%3E%3Cstop offset='1' stop-color='%23a47a26'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%232a0d4d'/%3E%3Ctext x='50' y='76' font-size='74' font-weight='900' font-family='Arial Narrow,Arial' text-anchor='middle' fill='url(%23g)'%3EY%3C/text%3E%3C/svg%3E">
+
+<link rel="preload" href="fonts/GCGrind.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas class="destellos" id="destellos" aria-hidden="true"></canvas>
+
+<header class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html#inicio" class="logo"><span class="texto-oro">YIPIO</span><span class="logo-estrella">✦</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#fechas">Fechas</a>
+      <a href="index.html#biografia">Biografía</a>
+      <a href="index.html#granhermano">Gran Hermano</a>
+      <a href="index.html#instagram">Instagram</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="eventoContenido" class="evento">
+  <p class="loading" style="padding:60px 20px;">Cargando...</p>
+</main>
+
+<footer class="footer">
+  <a href="index.html#inicio" class="footer-logo texto-oro">YIPIO</a>
+  <div class="redes" id="footerRedes"></div>
+  <p>&copy; <span id="anioActual"></span> Yipio. Todos los derechos reservados.</p>
+  <p class="footer-legal">Aviso legal: Yipio es una marca operada por Yisela Paola Pintos Olivera. Gran Hermano es una marca de sus respectivos titulares; este sitio no tiene relación oficial con el programa.</p>
+</footer>
+
+<script src="js/comun.js"></script>
+<script src="js/destellos.js"></script>
+<script src="js/evento.js"></script>
+<script src="js/contacto.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+{
+  "_comentario": "Línea de tiempo de la sección Gran Hermano. Cada momento puede llevar 'video' + 'poster' (se reproduce al pasar el mouse, o solo en celular al quedar en pantalla), 'imagen', 'versus' (placa Yipio VS rival), o nada: en ese caso se muestra la 'placa' (texto grande). 'versus' lleva 'rival' y opcionalmente 'resultadoRival' (ej: 'Eliminada'). 'votos' dibuja la barra de votación y 'destacado' agranda la tarjeta. Los videos van en videos/granhermano/, cortos (5-8 seg) y sin audio.",
+  "titulo": "Gran Hermano",
+  "subtitulo": "Generación Dorada · Temporada 2026",
+  "stats": [
+    {
+      "texto": "Subcampeona",
+      "etiqueta": "de la temporada 2026"
+    },
+    {
+      "valor": 48.2,
+      "decimales": 1,
+      "sufijo": "%",
+      "etiqueta": "de los votos en la gran final"
+    },
+    {
+      "valor": 35.6,
+      "decimales": 1,
+      "sufijo": "%",
+      "etiqueta": "para volver a la casa por repechaje"
+    },
+    {
+      "valor": 30,
+      "prefijo": "+",
+      "sufijo": "M",
+      "etiqueta": "de votos en la noche de la final"
+    }
+  ],
+  "momentos": [
+    {
+      "etiqueta": "Día 1 · 23 feb 2026",
+      "titulo": "Se abre la puerta",
+      "texto": "Entra a la casa con 40 años, casi una década de stand-up encima y un desafío personal: jugar a su manera.",
+      "placa": "Día 1"
+    },
+    {
+      "etiqueta": "Adentro",
+      "titulo": "La casa se ríe",
+      "texto": "En la cocina, en el living y hasta en las discusiones: la comediante nunca se apagó.",
+      "video": "videos/granhermano/risas.mp4",
+      "poster": "videos/granhermano/risas.jpg",
+      "camara": "CAM 03"
+    },
+    {
+      "etiqueta": "Semana 6 · abr 2026",
+      "titulo": "Versus contra Cinzia",
+      "texto": "El primer gran versus de la temporada. El público decide: Cinzia se va con el 53,9% de los votos y Yipio sigue en juego.",
+      "versus": {
+        "rival": "Cinzia",
+        "resultadoRival": "Eliminada"
+      }
+    },
+    {
+      "etiqueta": "27 abr 2026",
+      "titulo": "Versus contra Brian",
+      "texto": "Segundo versus y segunda victoria: Brian Sarmiento queda eliminado y Yipio se queda en la casa.",
+      "versus": {
+        "rival": "Brian",
+        "resultadoRival": "Eliminado"
+      }
+    },
+    {
+      "etiqueta": "Día 73 · 6 may 2026",
+      "titulo": "Una salida inesperada",
+      "texto": "Deja la casa para acompañar a su mamá por un problema de salud. Pero se va con una promesa.",
+      "frase": "Prometo volver con todo.",
+      "placa": "Día 73"
+    },
+    {
+      "etiqueta": "Día 87 · 20 may 2026",
+      "titulo": "Vuelve con todo",
+      "texto": "El público la vota en el repechaje y Yipio vuelve a entrar a la casa con el 35,6% de los votos.",
+      "placa": "35,6%"
+    },
+    {
+      "etiqueta": "Recta final",
+      "titulo": "Firme en el juego",
+      "texto": "Charlas de sillón, estrategia y el humor intacto: en la recta final se planta a su manera, de frente y sin vueltas.",
+      "video": "videos/granhermano/recta.mp4",
+      "poster": "videos/granhermano/recta.jpg",
+      "camara": "CAM 11"
+    },
+    {
+      "etiqueta": "19 ago 2026 · Noche de bodas",
+      "titulo": "Un casamiento de novela",
+      "texto": "La casa se viste de fiesta y Andrea del Boca llega como maestra de ceremonias. Antes de irse, le propone a Yipio que la amistad que nació adentro siga afuera, le entrega anillos y lo sellan con un beso.",
+      "imagen": "img/granhermano/boda-andrea.webp"
+    },
+    {
+      "etiqueta": "Galas en vivo",
+      "titulo": "Noches de gala",
+      "texto": "Cada gala es un show: baila, se ríe de todo y le pone ritmo a la casa entera.",
+      "video": "videos/granhermano/gala.mp4",
+      "poster": "videos/granhermano/gala.jpg",
+      "camara": "CAM 01"
+    },
+    {
+      "etiqueta": "31 ago 2026",
+      "titulo": "Versus contra Pincoya",
+      "texto": "El versus más picante, con récord de más de 13 millones de votos para una gala que no era final. Pincoya se va con el 58,1% y Yipio entra entre las seis finalistas.",
+      "versus": {
+        "rival": "Pincoya",
+        "resultadoRival": "Eliminada"
+      }
+    },
+    {
+      "etiqueta": "Afuera",
+      "titulo": "La Yipioneta",
+      "texto": "Mientras tanto, afuera, su fandom se organiza, se junta y la banca en cada placa al grito de «¡Yipio, Yipio!».",
+      "video": "videos/granhermano/yipioneta.mp4",
+      "poster": "videos/granhermano/yipioneta.jpg",
+      "camara": "EN VIVO"
+    },
+    {
+      "etiqueta": "Día 206 · 16 sep 2026",
+      "titulo": "La gran final",
+      "texto": "Llega a la final y se consagra subcampeona en una definición histórica de más de 30 millones de votos.",
+      "votos": 48.2,
+      "frase": "Jugué mucho con el corazón en esa casa.",
+      "placa": "Final",
+      "destacado": true
+    }
+  ]
+}

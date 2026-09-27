@@ -1,0 +1,227 @@
+/* =========================================================
+   FLYERS (flyer-vert/ y flyer-hor/)
+   El flyer es un lienzo de resolución fija (1080x1920 o 1920x1080) con
+   todo posicionado en píxeles. js/flyer.js lo escala entero para que entre
+   en la ventana: siempre se ve igual, en cualquier pantalla.
+   Usa las fuentes, colores y animaciones de style.css, pero con clases
+   propias (fl-*) para que las media queries del sitio no lo toquen.
+   ========================================================= */
+
+html, body.flyer {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+body.flyer::before { display: none; }
+body.flyer.escala-real { overflow: auto; }
+
+.lienzo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(ellipse 75% 40% at 50% 104%, rgba(143, 63, 224, 0.6), transparent 70%),
+    linear-gradient(180deg, #06030b 0%, #12072a 55%, #1d0a38 100%);
+}
+.lienzo--vert { width: 1080px; height: 1920px; }
+.lienzo--hor { width: 1920px; height: 1080px; }
+
+/* En tamaño real (?real) el lienzo queda arriba a la izquierda, sin escalar */
+.escala-real .lienzo { top: 0; left: 0; transform: none; }
+
+.lienzo > * { position: absolute; }
+
+/* ---------- Escenario ---------- */
+.lienzo .bambalina { height: 110px; }
+.lienzo--hor .bambalina { height: 90px; }
+
+.lienzo .telon { width: 150px; }
+.lienzo--hor .telon { width: 190px; }
+
+.lienzo .reflector { width: 600px; max-width: none; top: -6%; height: 120%; }
+.lienzo .reflector--izq { left: 20px; }
+.lienzo .reflector--der { right: 20px; }
+.lienzo .reflector--purpura { left: 50%; margin-left: -300px; }
+.lienzo--hor .reflector { width: 720px; }
+.lienzo--hor .reflector--izq { left: 180px; }
+.lienzo--hor .reflector--der { right: 180px; }
+.lienzo--hor .reflector--purpura { margin-left: -360px; }
+
+.fl-piso {
+  left: 50%;
+  bottom: -300px;
+  width: 1600px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 220, 150, 0.3), rgba(143, 63, 224, 0.2) 40%, transparent 70%);
+}
+.lienzo--hor .fl-piso { width: 2400px; height: 600px; bottom: -280px; }
+
+.fl-destellos {
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* ---------- Título: Stand-up comedy / YIPIO / PATOTERA ---------- */
+.fl-titulo {
+  left: 0;
+  right: 0;
+  z-index: 3;
+  text-align: center;
+}
+.lienzo--vert .fl-titulo { top: 190px; }
+.lienzo--hor .fl-titulo { top: 104px; }
+
+.fl-kicker {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--lila);
+}
+.lienzo--vert .fl-kicker { font-size: 30px; }
+.lienzo--hor .fl-kicker { font-size: 24px; }
+
+/* El nombre de la artista, en blanco, arriba del título del show */
+.fl-yipio {
+  margin: 0;
+  font-family: var(--fuente-display);
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(143, 63, 224, 0.7), 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+.fl-yipio::before,
+.fl-yipio::after {
+  content: '✦';
+  font-family: var(--fuente-texto);
+  font-size: 0.35em;
+  vertical-align: 0.6em;
+  color: var(--oro);
+  margin: 0 0.7em;
+}
+.lienzo--vert .fl-yipio { font-size: 110px; margin-top: 22px; padding-left: 0.22em; }
+.lienzo--hor .fl-yipio { font-size: 80px; margin-top: 14px; padding-left: 0.22em; }
+
+.fl-show {
+  margin: -0.22em 0 0;
+  padding-top: 0.34em;
+  font-family: var(--fuente-display);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 50px rgba(228, 192, 106, 0.3)) drop-shadow(0 14px 34px rgba(0, 0, 0, 0.6));
+}
+.lienzo--vert .fl-show { font-size: 300px; }
+.lienzo--hor .fl-show { font-size: 250px; }
+
+/* ---------- Fotos sin fondo ---------- */
+.fl-fotos {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  filter: drop-shadow(0 0 36px rgba(143, 63, 224, 0.5));
+}
+/* En el vertical las fotos terminan antes del borde y se funden con el
+   piso; los puños quedan por delante de PATOTERA (z-index 4 > 3). */
+.lienzo--vert .fl-fotos { height: 1040px; bottom: 300px; }
+.lienzo--hor .fl-fotos { height: 630px; }
+
+.fl-fotos::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1100px;
+  height: 95%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 50% 55% at 50% 55%, rgba(255, 228, 170, 0.2), transparent 70%);
+}
+
+.fl-foto {
+  position: relative;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+  opacity: 0;
+}
+.fl-foto.cargada { animation: foto-sube 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+.fl-foto--centro { order: 2; z-index: 2; height: 100%; }
+.fl-foto--centro.cargada { animation-delay: 0.15s; }
+.fl-foto--izq,
+.fl-foto--der { z-index: 1; filter: brightness(0.8) saturate(0.95); }
+.fl-foto--izq { order: 1; }
+.fl-foto--der { order: 3; }
+.fl-foto--izq.cargada,
+.fl-foto--der.cargada { animation-delay: 0.4s; }
+
+.lienzo--vert .fl-foto--izq,
+.lienzo--vert .fl-foto--der { height: 68%; }
+.lienzo--vert .fl-foto--izq { margin-right: -300px; }
+.lienzo--vert .fl-foto--der { margin-left: -300px; }
+
+.lienzo--hor .fl-foto--izq,
+.lienzo--hor .fl-foto--der { height: 76%; }
+.lienzo--hor .fl-foto--izq { margin-right: -110px; }
+.lienzo--hor .fl-foto--der { margin-left: -110px; }
+
+/* ---------- Pie: GIRA 2026/2027 ---------- */
+.fl-pie {
+  left: 0;
+  right: 0;
+  z-index: 5;
+  text-align: center;
+}
+.lienzo--vert .fl-pie { bottom: 170px; }
+.lienzo--hor .fl-pie { bottom: 60px; }
+
+.fl-pie::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: -90px;
+  bottom: -90px;
+  width: 1100px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(10, 4, 20, 0.85), transparent 80%);
+}
+
+.fl-gira {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 0;
+  font-family: var(--fuente-display);
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--oro);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 30px rgba(228, 192, 106, 0.25);
+}
+.fl-gira::before,
+.fl-gira::after {
+  content: '';
+  width: 1.4em;
+  height: 2px;
+  background: var(--grad-oro);
+}
+.lienzo--vert .fl-gira { font-size: 72px; }
+.lienzo--hor .fl-gira { font-size: 64px; }

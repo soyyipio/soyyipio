@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Yipio - Stand-Up Comedy</title>
+<meta name="description" content="Yipio, comediante de stand-up y subcampeona de Gran Hermano Generación Dorada. Fechas de PATOTERA, biografía y contacto.">
+<meta name="theme-color" content="#0c0614">
+
+<!-- Cómo se ve el link al compartirlo en WhatsApp, Instagram, etc. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yipio - Stand-Up Comedy">
+<meta property="og:description" content="PATOTERA, el nuevo show de stand-up de Yipio. Fechas y entradas.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:locale" content="es_UY">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fff0bf'/%3E%3Cstop offset='.5' stop-color='%23e4c06a'/%3E%3Cstop offset='1' stop-color='%23a47a26'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%232a0d4d'/%3E%3Ctext x='50' y='76' font-size='74' font-weight='900' font-family='Arial Narrow,Arial' text-anchor='middle' fill='url(%23g)'%3EY%3C/text%3E%3C/svg%3E">
+
+<link rel="preload" href="fonts/GCGrind.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Grift-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas class="destellos" id="destellos" aria-hidden="true"></canvas>
+
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#inicio" class="logo"><span class="texto-oro">YIPIO</span><span class="logo-estrella">✦</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#fechas">Fechas</a>
+      <a href="#biografia">Biografía</a>
+      <a href="#granhermano">Gran Hermano</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="hero-slider" id="heroSlider">
+    <!-- slides insertados por js/banner.js -->
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+
+  <!-- Escenario: se muestra mientras no haya banners en img/banner/ -->
+  <div class="escenario" id="heroEscenario" hidden>
+    <div class="bambalina"></div>
+    <div class="telon telon--izq"></div>
+    <div class="telon telon--der"></div>
+    <div class="reflector reflector--izq"></div>
+    <div class="reflector reflector--purpura"></div>
+    <div class="reflector reflector--der"></div>
+    <div class="escenario-piso"></div>
+    <div class="escenario-titulo">
+      <p class="escenario-kicker">Stand-up comedy</p>
+      <h1 class="escenario-nombre texto-oro">Patotera</h1>
+    </div>
+    <!-- Fotos sin fondo de img/escenario/: 1 al centro, 2 a la izquierda, 3 a la derecha (ver js/escenario.js) -->
+    <div class="escenario-fotos" data-carpeta="img/escenario/">
+      <img class="escenario-foto escenario-foto--izq" data-foto="2" alt="">
+      <img class="escenario-foto escenario-foto--der" data-foto="3" alt="">
+      <img class="escenario-foto escenario-foto--centro" data-foto="1" alt="Yipio">
+    </div>
+    <div class="escenario-pie">
+      <p class="escenario-show"><span>Gira 2026/2027</span></p>
+      <div class="escenario-ctas">
+        <a href="#fechas" class="btn btn-oro">Ver fechas</a>
+        <a href="#granhermano" class="btn btn-linea">Gran Hermano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cintas" aria-hidden="true">
+  <div class="cinta cinta--purpura"><div class="cinta-track" id="marqueeTrack2"></div></div>
+  <div class="cinta cinta--oro"><div class="cinta-track" id="marqueeTrack"></div></div>
+</div>
+
+<section id="fechas" class="section">
+  <header class="titulo-seccion">
+    <p class="kicker">En vivo</p>
+    <h2>Próximas fechas</h2>
+  </header>
+  <div id="fechasList" class="fechas-list">
+    <p class="loading">Cargando fechas...</p>
+  </div>
+</section>
+
+<section id="biografia" class="section section-alt">
+  <header class="titulo-seccion">
+    <p class="kicker">La comediante</p>
+    <h2>Biografía</h2>
+  </header>
+  <div id="bioContent" class="bio">
+    <p class="loading">Cargando biografía...</p>
+  </div>
+</section>
+
+<section id="galeria" class="galeria-section">
+  <div class="galeria-track" id="galeriaTrack"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Anterior">&#10094;</button>
+  <div class="lightbox-track" id="lightboxTrack"></div>
+  <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Siguiente">&#10095;</button>
+</div>
+
+<section id="granhermano" class="section gh">
+  <div class="gh-luces" aria-hidden="true">
+    <div class="reflector reflector--izq"></div>
+    <div class="reflector reflector--purpura"></div>
+    <div class="reflector reflector--der"></div>
+  </div>
+  <header class="titulo-seccion">
+    <p class="kicker">Reality show</p>
+    <h2 id="ghTitulo">Gran Hermano</h2>
+    <p class="subtitulo" id="ghSubtitulo"></p>
+  </header>
+  <div class="gh-stats" id="ghStats"></div>
+  <div class="timeline" id="ghTimeline">
+    <p class="loading">Cargando...</p>
+  </div>
+</section>
+
+<section id="instagram" class="section section-alt">
+  <header class="titulo-seccion">
+    <p class="kicker">Seguila</p>
+    <h2>Instagram</h2>
+  </header>
+  <div id="igPerfil" class="ig-perfil" hidden></div>
+  <div id="igGrid" class="ig-grid"></div>
+  <div class="ig-mas" id="igMas"></div>
+</section>
+
+<section id="contacto" class="section">
+  <header class="titulo-seccion">
+    <p class="kicker">Contrataciones</p>
+    <h2>Contacto</h2>
+  </header>
+  <div class="contacto">
+    <p class="contacto-texto" id="contactoTexto"></p>
+    <div class="contacto-botones" id="contactoBotones"></div>
+    <div class="redes" id="redesList"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="#inicio" class="footer-logo texto-oro">YIPIO</a>
+  <div class="redes" id="footerRedes"></div>
+  <p>&copy; <span id="anioActual"></span> Yipio. Todos los derechos reservados.</p>
+  <p class="footer-legal">Aviso legal: Yipio es una marca operada por Yisela Paola Pintos Olivera. Gran Hermano es una marca de sus respectivos titulares; este sitio no tiene relación oficial con el programa.</p>
+</footer>
+
+<script src="js/comun.js"></script>
+<script src="js/destellos.js"></script>
+<script src="js/marquee.js"></script>
+<script src="js/banner.js"></script>
+<script src="js/escenario.js"></script>
+<script src="js/galeria.js"></script>
+<script src="js/fechas.js"></script>
+<script src="js/bio.js"></script>
+<script src="js/granhermano.js"></script>
+<script src="js/instagram.js"></script>
+<script src="js/contacto.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

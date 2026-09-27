@@ -1,0 +1,13 @@
+{
+  "_comentario": "Publicaciones destacadas de Instagram. Cada una: 'url' (link al post o reel), 'imagen' (captura guardada en img/instagram/), 'tipo' ('post' o 'reel') y 'texto' (opcional, aparece al pasar el mouse). Si una publicación no tiene 'imagen', se muestra el embed oficial de Instagram en su lugar.",
+  "perfil": {
+    "avatar": "img/instagram/perfil.jpg",
+    "nombre": "Yisela Paola",
+    "texto": "Comediante · Stand-up · PATOTERA gira 2026/2027"
+  },
+  "publicaciones": [
+    { "url": "https://www.instagram.com/yipio/", "imagen": "img/instagram/1.webp", "tipo": "reel", "texto": "Reel destacado" },
+    { "url": "https://www.instagram.com/yipio/", "imagen": "img/instagram/2.webp", "tipo": "post", "texto": "Publicación destacada" },
+    { "url": "https://www.instagram.com/yipio/", "imagen": "img/instagram/3.webp", "tipo": "reel", "texto": "Reel destacado" }
+  ]
+}
