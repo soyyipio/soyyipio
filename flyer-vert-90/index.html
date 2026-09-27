@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PATOTERA - Flyer horizontal</title>
+<title>PATOTERA - Flyer vertical rotado 90°</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232a0d4d'/%3E%3Ctext x='50' y='76' font-size='74' font-weight='900' font-family='Arial Narrow,Arial' text-anchor='middle' fill='%23e4c06a'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="../fonts/GCGrind.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,10 +12,12 @@
 </head>
 <body class="flyer">
 
-<!-- Flyer horizontal (1920x1080). Se escala solo para entrar en la ventana.
+<!-- Flyer vertical (1080x1920) girado 90° en sentido horario: ocupa 1920x1080.
+     Es el mismo diseño que flyer-vert/ (mismo CSS), sólo que rotado.
+     Se escala solo para entrar en la ventana.
      Para verlo a tamaño real (1 píxel = 1 píxel): agregar ?real a la URL.
      Las fotos salen de img/escenario/ (1 centro, 2 izquierda, 3 derecha). -->
-<div class="lienzo lienzo--hor" id="lienzo" data-ancho="1920" data-alto="1080">
+<div class="lienzo lienzo--vert" id="lienzo" data-ancho="1080" data-alto="1920" data-rotar="90">
   <div class="reflector reflector--izq"></div>
   <div class="reflector reflector--purpura"></div>
   <div class="reflector reflector--der"></div>
@@ -42,7 +44,7 @@
     <p class="fl-gira">Gira 2026/2027</p>
   </div>
 
-  <canvas class="fl-destellos" id="destellos" data-ancho="1920" data-alto="1080" aria-hidden="true"></canvas>
+  <canvas class="fl-destellos" id="destellos" data-ancho="1080" data-alto="1920" aria-hidden="true"></canvas>
 </div>
 
 <script src="../js/comun.js"></script>
