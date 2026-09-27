@@ -17,8 +17,9 @@
       const sep = data.separador || '•';
       // Se repite el texto hasta que alcance para cubrir pantallas anchas,
       // y después se duplica todo para que el loop sea continuo.
-      let texto = items.join(` ${sep} `) + ` ${sep} `;
-      while (texto.length < 140) texto += texto;
+      const base = items.join(` ${sep} `) + ` ${sep} `;
+      let texto = base;
+      while (texto.length < 220) texto += base;
 
       tracks.forEach((track) => {
         track.innerHTML = `<span>${texto}</span><span>${texto}</span>`;

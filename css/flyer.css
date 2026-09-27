@@ -193,8 +193,8 @@ body.flyer.escala-real { overflow: auto; }
 .fl-foto--cabeza { display: none; }
 .lienzo--vert .fl-foto--cabeza { display: block; z-index: 3; }
 .lienzo--vert .fl-foto--izq.fl-foto--cabeza {
-  -webkit-mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
-  mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 27% 23% at 53% 18%, #000 75%, transparent 100%);
+  mask-image: radial-gradient(ellipse 27% 23% at 53% 18%, #000 75%, transparent 100%);
 }
 .lienzo--vert .fl-foto--der.fl-foto--cabeza {
   -webkit-mask-image: radial-gradient(ellipse 24% 19% at 51% 16%, #000 72%, transparent 100%);

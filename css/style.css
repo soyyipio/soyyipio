@@ -686,24 +686,22 @@ p { margin: 0 0 1em; }
     padding-top: calc(var(--nav-h) + 48px);
   }
   .escenario-titulo { position: relative; top: auto; }
-  .escenario-fotos { position: relative; height: auto; margin-top: 2vw; }
-  /* 68 + 2x42 - 2x26 = 100vw: las tres entran justo, sin cortarse */
-  .escenario-foto--centro { height: auto; width: 68vw; }
+  /* Todas en posición absoluta y en % del mismo contenedor: así las copias
+     de las cabezas coinciden siempre con sus fotos (con vw se desfasaban
+     por el ancho de la barra de scroll). 68% + 2x42% - 2x26% = 100%. */
+  .escenario-fotos { position: relative; height: auto; margin-top: 2vw; aspect-ratio: 100 / 68; }
+  .escenario-foto { position: absolute; bottom: 0; margin: 0 !important; height: auto; }
+  .escenario-foto--centro { width: 68%; left: 16%; }
   .escenario-foto--izq,
-  .escenario-foto--der { height: auto; width: 42vw; }
-  .escenario-foto--izq { margin-right: -26vw; }
-  .escenario-foto--der { margin-left: -26vw; }
-  /* Copias de la 2 y la 3 recortadas a la cabeza, por delante de la central:
-     el cuerpo queda detrás y la cara se ve entera. Van en la misma posición
-     que las originales (position absolute sobre ellas). */
-  .escenario-foto--cabeza { display: block; position: absolute; bottom: 0; z-index: 3; margin: 0 !important; }
+  .escenario-foto--der { width: 42%; }
+  .escenario-foto--izq { left: 0; }
+  .escenario-foto--der { right: 0; }
+  .escenario-foto--cabeza { display: block; z-index: 3; }
   .escenario-foto--izq.escenario-foto--cabeza {
-    left: 0;
-    -webkit-mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
-    mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 27% 23% at 53% 18%, #000 75%, transparent 100%);
+    mask-image: radial-gradient(ellipse 27% 23% at 53% 18%, #000 75%, transparent 100%);
   }
   .escenario-foto--der.escenario-foto--cabeza {
-    right: 0;
     -webkit-mask-image: radial-gradient(ellipse 24% 19% at 51% 16%, #000 72%, transparent 100%);
     mask-image: radial-gradient(ellipse 24% 19% at 51% 16%, #000 72%, transparent 100%);
   }
@@ -726,6 +724,9 @@ p { margin: 0 0 1em; }
   overflow: hidden;
 }
 
+/* Rendimiento: el texto se mueve en su propia capa de GPU (will-change) y
+   las cintas no llevan sombra ni transparencia, así la animación no obliga
+   a repintar el resto de la página en cada cuadro. */
 .cinta {
   width: 110%;
   margin-left: -5%;
@@ -741,7 +742,6 @@ p { margin: 0 0 1em; }
   background-size: 200% auto;
   color: var(--tinta);
   transform: rotate(-2deg);
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55), 0 0 30px rgba(228, 192, 106, 0.18);
 }
 
 .cinta--purpura {
@@ -751,12 +751,12 @@ p { margin: 0 0 1em; }
   background: linear-gradient(90deg, #2b0a52, #6a1fb5, #2b0a52);
   color: var(--oro-claro);
   transform: translateY(-50%) rotate(2deg);
-  opacity: 0.92;
 }
 
 .cinta-track {
   display: inline-flex;
   width: max-content;
+  will-change: transform;
 }
 
 /* Se activa por JS recién con el contenido ya insertado (ver marquee.js) */
@@ -774,8 +774,8 @@ p { margin: 0 0 1em; }
 }
 
 @keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 /* =========================================================
