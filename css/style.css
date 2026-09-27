@@ -610,6 +610,7 @@ p { margin: 0 0 1em; }
 }
 .escenario-foto--izq { order: 1; margin-right: clamp(-120px, -6vw, -30px); }
 .escenario-foto--der { order: 3; margin-left: clamp(-120px, -6vw, -30px); }
+.escenario-foto--cabeza { display: none; }
 
 @keyframes foto-sube {
   from { opacity: 0; transform: translateY(50px); }
@@ -686,20 +687,32 @@ p { margin: 0 0 1em; }
   }
   .escenario-titulo { position: relative; top: auto; }
   .escenario-fotos { position: relative; height: auto; margin-top: 2vw; }
-  .escenario-foto--centro { height: auto; width: min(84vw, 620px); }
+  /* 68 + 2x42 - 2x26 = 100vw: las tres entran justo, sin cortarse */
+  .escenario-foto--centro { height: auto; width: 68vw; }
   .escenario-foto--izq,
-  .escenario-foto--der { height: auto; width: min(50vw, 370px); }
+  .escenario-foto--der { height: auto; width: 42vw; }
+  .escenario-foto--izq { margin-right: -26vw; }
+  .escenario-foto--der { margin-left: -26vw; }
+  /* Copias de la 2 y la 3 recortadas a la cabeza, por delante de la central:
+     el cuerpo queda detrás y la cara se ve entera. Van en la misma posición
+     que las originales (position absolute sobre ellas). */
+  .escenario-foto--cabeza { display: block; position: absolute; bottom: 0; z-index: 3; margin: 0 !important; }
+  .escenario-foto--izq.escenario-foto--cabeza {
+    left: 0;
+    -webkit-mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
+    mask-image: radial-gradient(ellipse 24% 17% at 53% 14%, #000 72%, transparent 100%);
+  }
+  .escenario-foto--der.escenario-foto--cabeza {
+    right: 0;
+    -webkit-mask-image: radial-gradient(ellipse 24% 19% at 51% 16%, #000 72%, transparent 100%);
+    mask-image: radial-gradient(ellipse 24% 19% at 51% 16%, #000 72%, transparent 100%);
+  }
   .escenario-pie { position: relative; bottom: auto; margin-top: -24vw; padding-bottom: 30px; }
   .escenario-pie::before { background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(10, 4, 20, 0.85), transparent 80%); width: 130%; bottom: -10px; }
 }
 
 @media (max-width: 600px) {
   .escenario-kicker { font-size: 0.66rem; letter-spacing: 0.32em; }
-  .escenario-foto--centro { height: auto; width: 84vw; }
-  .escenario-foto--izq,
-  .escenario-foto--der { height: auto; width: 50vw; }
-  .escenario-foto--izq { margin-right: -16vw; }
-  .escenario-foto--der { margin-left: -16vw; }
   .escenario-show { gap: 12px; letter-spacing: 0.18em; font-size: 1.6rem; margin-bottom: 16px; }
   .escenario-ctas .btn { padding: 13px 22px; }
 }
